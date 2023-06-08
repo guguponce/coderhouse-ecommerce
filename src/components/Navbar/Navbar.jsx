@@ -1,7 +1,5 @@
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidget from "../CartWidget/CartWidget";
 
 export default function NavbarComponent() {
@@ -25,55 +23,28 @@ export default function NavbarComponent() {
             DevBooks
           </Navbar.Brand>
         </Container>
-        <Container className="d-flex gap-5">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            id="basic-navbar-nav"
-            className="justify-content-end"
-          >
-            <Nav>
-              <NavDropdown
-                title="Categories"
-                className="fs-4 text-yellow-2 fw-semibold"
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item
-                  className="text-center fw-semibold"
-                  href="#action/FrontEnd"
-                >
-                  Front End
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  className="text-center fw-semibold"
-                  href="#action/BackEnd"
-                >
-                  Back End
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  className="text-center fw-semibold"
-                  href="#action/Javascript"
-                >
-                  Javascript
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  className="text-center fw-semibold"
-                  href="#action/Database"
-                >
-                  Database
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  className="text-center fw-semibold"
-                  href="#action/Python"
-                >
-                  Python
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
+        <Container className="d-flex justify-content-end">
+          <ul className="list-group list-group-horizontal gap-3 mx-5  flex-wrap">
+            <li className="category-item fw-semibold text-yellow-2 fs-4">
+              Front End
+            </li>
+            <span className="fs-4 text-yellow-2">|</span>
+            <li className="category-item fw-semibold text-yellow-2 fs-4">
+              Back End
+            </li>
+            <span className="fs-4 text-yellow-2">|</span>
+            <li className="category-item fw-semibold text-yellow-2 fs-4">
+              Javascript
+            </li>
+            <span className="fs-4 text-yellow-2">|</span>
+            <li className="category-item fw-semibold text-yellow-2 fs-4">
+              Database
+            </li>
+            <span className="fs-4 text-yellow-2">|</span>
+            <li className="category-item fw-semibold text-yellow-2 fs-4">
+              Python
+            </li>
+          </ul>
           <CartWidget />
         </Container>
       </Navbar>
