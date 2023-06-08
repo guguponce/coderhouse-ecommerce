@@ -1,0 +1,27 @@
+@import "../../styles/Settings.scss";
+
+#shopping-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  #cart-amount-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: $green-4;
+    color: $yellow-2;
+    span {
+      line-height: 15px;
+      align-self: center;
+      font-weight: 600;
+    }
+  }
+}

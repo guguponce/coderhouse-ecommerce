@@ -1,0 +1,87 @@
+$green-1: #629157;
+$green-2: #557950;
+$green-3: #476149;
+$green-4: #394942;
+$green-5: #557950;
+$yellow-1: #e1e1a3;
+$yellow-2: #e2e28a;
+
+.bg-green-1 {
+  background-color: $green-1;
+}
+
+.bg-green-2 {
+  background-color: $green-2;
+}
+
+.bg-green-3 {
+  background-color: $green-3;
+}
+
+.bg-green-4 {
+  background-color: $green-4;
+}
+
+.bg-green-5 {
+  background-color: $green-5;
+}
+
+.bg-yellow-1 {
+  background-color: #e1e1a3;
+}
+
+.bg-green-1 {
+  background-color: $green-1;
+}
+
+.bg-green-2 {
+  background-color: $green-2;
+}
+
+.bg-green-3 {
+  background-color: $green-3;
+}
+
+.bg-green-4 {
+  background-color: $green-4;
+}
+
+.bg-green-5 {
+  background-color: $green-5;
+}
+
+.bg-yellow-1 {
+  background-color: #e1e1a3;
+}
+
+.bg-yellow-2 {
+  background-color: #e2e28a;
+}
+
+.text-yellow-1,
+.text-yellow-1:hover {
+  color: #e1e1a3;
+}
+
+.text-yellow-2,
+.text-yellow-2:hover,
+#basic-nav-dropdown {
+  color: #e2e28a;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsla(0, 0%, 100%, 1);
+  -webkit-text-size-adjust: 100%;
+}
