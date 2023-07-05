@@ -94,14 +94,15 @@
       }
     }
     #price-counter-container {
-      @include flex(row, space-between, flex-end);
-
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: flex-end !important;
       #price-counter-box {
         @include flex(column, center, flex-start);
       }
 
       #add-total-price-box {
-        margin: 0;
+        margin: 0 !important;
         flex-direction: column;
         #add-to-cart-btn {
           margin: 2rem 0 0.5rem;

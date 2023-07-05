@@ -66,7 +66,8 @@ export default function ItemDetail({ item }) {
               Cart
             </Link>
             <p id="total-price">
-              <span>Total price: </span> ${item.saleprice * itemQuantity}
+              <span>Total price: </span> $
+              {(item.saleprice * itemQuantity).toFixed(2)}
             </p>
           </div>
         )}
