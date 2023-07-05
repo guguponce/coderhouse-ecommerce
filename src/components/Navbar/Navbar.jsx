@@ -34,7 +34,7 @@ export default function NavbarComponent() {
         </Container>
         <Container
           id="cart-toggle-container"
-          className=" mx-0  d-flex flex-2 gap-4 justify-content-end  flex-row-reverse"
+          className=" mx-0  d-flex flex-2 gap-4"
         >
           <CartWidget />
 

@@ -1,7 +1,7 @@
 @import "../../styles/Settings.scss";
 #logo-container {
   width: fit-content;
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     .logo {
       display: none;
     }
@@ -12,17 +12,23 @@
 }
 
 #cart-toggle-container {
-  flex-direction: row !important;
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
   @media (max-width: 1200px) {
-    width: 160px !important;
+    flex-direction: row !important;
+    width: 150px !important;
+    padding: 0;
+    gap: 0.5rem;
   }
   #basic-navbar-nav {
+    flex-direction: row !important;
+    max-width: fit-content;
     @media (max-width: 1200px) {
       position: absolute;
-      right: 2rem;
-      top: 120px;
+      right: 1rem;
+      top: 132px;
       z-index: 100;
-      border-radius: 0.5rem;
+      border-radius: 0 0 0.5rem 0.5rem;
       background-color: $green-2;
       padding: 0.5rem 1rem;
 
@@ -33,6 +39,9 @@
           border-bottom: none;
         }
       }
+    }
+    @media (max-width: 500px) {
+      top: 85px;
     }
   }
 }

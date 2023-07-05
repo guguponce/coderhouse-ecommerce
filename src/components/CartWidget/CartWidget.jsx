@@ -1,6 +1,9 @@
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+
 export default function CartWidget() {
   return (
-    <div id="shopping-cart">
+    <Button as={Link} variant="link" to="/cart" id="shopping-cart">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlSpace="preserve"
@@ -25,6 +28,6 @@ export default function CartWidget() {
       <div id="cart-amount-container">
         <span>1</span>
       </div>
-    </div>
+    </Button>
   );
 }
