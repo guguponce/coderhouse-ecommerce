@@ -10,7 +10,7 @@ export default function Accordion({ children, id, title }) {
         onClick={() => setActive((prev) => !prev)}
       >
         <h4 className="accordionTitle">{title}</h4>
-        <span className="accordionIcon">{active ? "↑" : "↓"}</span>
+        <span className="accordionIcon">{active ? "-" : "+"}</span>
       </div>
       <div
         className="accordionBottom"

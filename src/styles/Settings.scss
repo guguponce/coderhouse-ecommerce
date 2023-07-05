@@ -1,3 +1,9 @@
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
 $green-1: #629157;
 $green-2: #557950;
 $green-3: #476149;
@@ -90,11 +96,14 @@ $bg-3: #e1eae0;
 }
 body {
   background-color: $body-bg;
+  box-sizing: border-box;
 }
 
-@mixin flex($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
+.main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 90vh;
+  padding: 0 1rem;
+  @include flex(column, flex-start, center);
 }

@@ -5,32 +5,108 @@
   @include flex(row, center, flex-start);
   #single-book {
     background-color: $bg-2;
-    width: 80vw;
-    max-width: 800px;
-    margin: 2rem auto;
+    width: 100vw;
     padding: 2rem;
-    box-shadow: 2px 2px 5px 1px #ddd;
-    #price-single-book {
-      font-size: 1.5rem;
-      font-weight: bold;
+    #authors-single-book {
+      font-weight: 400;
+      font-style: italic;
     }
     #img-description-box {
       width: 100%;
       min-height: 250px;
       #img-single-book {
-        display: inline;
-        float: left;
-        margin: 0.5rem 1rem 0.5rem 0;
-        margin-left: 0;
+        margin: 2rem 0;
       }
 
       #description-single-book {
         text-align: justify;
       }
     }
+    #price-counter-container {
+      @include flex(column, flex-start, center);
+
+      #price-counter-box {
+        @include flex(column, center, flex-start);
+
+        width: fit-content;
+        #price-single-book {
+          width: 100px;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          position: relative;
+          &::after {
+            content: "(per Book)";
+            position: absolute;
+            bottom: -0.5rem;
+            right: 0;
+            font-size: 0.5rem;
+          }
+        }
+      }
+      #add-total-price-box {
+        margin: 2rem;
+
+        @include flex(column-reverse, center, center);
+        #add-to-cart-btn {
+          margin: 0;
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          background-color: $green-3;
+          color: #fefefe;
+          height: calc(2rem + 4px);
+          font-size: 0.9rem;
+          border: 0;
+
+          &:hover {
+            background-color: $green-2;
+            color: #fefefe;
+          }
+        }
+        #total-price {
+          margin: 0;
+          font-weight: 600;
+          // text-decoration: double underline;
+          font-size: 1.5rem;
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
 
     #price-single-book {
       margin-top: 1rem;
+    }
+  }
+}
+@media (min-width: 480px) {
+  #single-book {
+    width: 80vw;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 2px 2px 5px 1px #ddd;
+    #img-description-box {
+      #img-single-book {
+        display: inline;
+        float: left;
+        margin: 0.5rem 1rem 0.5rem 0 !important;
+      }
+    }
+    #price-counter-container {
+      @include flex(row, space-between, flex-end);
+
+      #price-counter-box {
+        @include flex(column, center, flex-start);
+      }
+
+      #add-total-price-box {
+        margin: 0;
+        flex-direction: column;
+        #add-to-cart-btn {
+          margin: 2rem 0 0.5rem;
+        }
+      }
     }
   }
 }

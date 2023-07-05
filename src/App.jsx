@@ -8,6 +8,8 @@ import Homepage from "./pages/Homepage/Homepage";
 import { Route, Routes } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import Cart from "./pages/Cart/Cart";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/book/:id" element={<ItemDetailContainer />} />
         <Route path="/category/:category" element={<ItemListContainer />} />
-        <Route path="*" element={<h1>404</h1>} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );

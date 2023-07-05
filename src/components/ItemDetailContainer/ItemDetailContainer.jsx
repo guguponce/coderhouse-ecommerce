@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getItem } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import loadingGif from "/loading.gif";
+import Loading from "../Loading/Loading";
 
 export default function ItemDetailContainer() {
   const [book, setBook] = useState(null);
@@ -20,13 +20,7 @@ export default function ItemDetailContainer() {
 
   return (
     <main className="main" id="single-book-main">
-      {!book ? (
-        <div className="loading">
-          <img src={loadingGif} alt="loading" />
-        </div>
-      ) : (
-        <ItemDetail item={book} />
-      )}
+      {!book ? <Loading /> : <ItemDetail item={book} />}
     </main>
   );
 }

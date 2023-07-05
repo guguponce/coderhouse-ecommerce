@@ -1,7 +1,38 @@
 @import "../../styles/Settings.scss";
-.logo {
-  height: 100px;
+#logo-container {
+  width: fit-content;
+  @media (max-width: 480px) {
+    .logo {
+      display: none;
+    }
+  }
+  .logo {
+    height: 100px;
+  }
 }
-.category-item {
-  list-style: none;
+
+#cart-toggle-container {
+  flex-direction: row !important;
+  @media (max-width: 1200px) {
+    width: 160px !important;
+  }
+  #basic-navbar-nav {
+    @media (max-width: 1200px) {
+      position: absolute;
+      right: 2rem;
+      top: 120px;
+      z-index: 100;
+      border-radius: 0.5rem;
+      background-color: $green-2;
+      padding: 0.5rem 1rem;
+
+      .category-item {
+        list-style: none;
+        border-bottom: 2px solid $yellow-1;
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }

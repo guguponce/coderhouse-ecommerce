@@ -1,0 +1,56 @@
+@import "../../styles/Settings.scss";
+
+.handleAddToCartContainer {
+  @include flex(column, center, center);
+  border: 0;
+  gap: 0.5rem;
+  .counter {
+    background-color: $bg-2;
+    border-radius: 0.5rem;
+    color: $green-3;
+
+    border: 2px solid $green-3;
+    @include flex(row, center, center);
+    .counterBtn,
+    .counterNumber {
+      background-color: inherit;
+      color: inherit;
+      border: 0;
+      font-weight: 600;
+      @include flex(row, center, center);
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+    }
+    .counterBtn {
+      &:first-of-type {
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+      &:last-of-type {
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+      &:hover {
+        background-color: $green-3;
+        color: $yellow-1;
+      }
+    }
+    .counterNumber {
+      background-color: $bg-2;
+      color: $green-4;
+      border-right: 2px solid $green-3;
+      border-left: 2px solid $green-3;
+    }
+  }
+
+  .addToCartBtn {
+    color: $green-3;
+    border-color: $green-3;
+    &:hover {
+      background-color: $green-3;
+      color: #fefefe;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
