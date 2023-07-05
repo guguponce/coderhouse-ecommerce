@@ -5,6 +5,9 @@ $green-4: #394942;
 $green-5: #557950;
 $yellow-1: #e1e1a3;
 $yellow-2: #e2e28a;
+$body-bg: #ebf1ea;
+$bg-2: #d7e3d5;
+$bg-3: #e1eae0;
 
 .bg-green-1 {
   background-color: $green-1;
@@ -84,4 +87,14 @@ $yellow-2: #e2e28a;
   -moz-osx-font-smoothing: grayscale;
   background-color: hsla(0, 0%, 100%, 1);
   -webkit-text-size-adjust: 100%;
+}
+body {
+  background-color: $body-bg;
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }

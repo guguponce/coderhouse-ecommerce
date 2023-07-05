@@ -1,12 +1,19 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink, useNavigate } from "react-router-dom";
+import React from "react";
 
 export default function NavbarComponent() {
+  const navigate = useNavigate();
   return (
     <Container as="header" className="px-0 mw-100 container-fluid">
       <Navbar className="bg-green-1 px-5 py-3 shadow-lg" expand="lg">
-        <Container className="w-100  d-flex gap-3">
+        <Container
+          className="w-100  d-flex gap-3"
+          role="button"
+          onClick={() => navigate("/")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#E1E1A3"
@@ -23,27 +30,23 @@ export default function NavbarComponent() {
             DevBooks
           </Navbar.Brand>
         </Container>
-        <Container className="d-flex justify-content-end">
+        <Container className="d-flex flex-2 justify-content-end">
           <ul className="list-group list-group-horizontal gap-3 mx-5  flex-wrap">
-            <li className="category-item fw-semibold text-yellow-2 fs-4">
-              Front End
-            </li>
-            <span className="fs-4 text-yellow-2">|</span>
-            <li className="category-item fw-semibold text-yellow-2 fs-4">
-              Back End
-            </li>
-            <span className="fs-4 text-yellow-2">|</span>
-            <li className="category-item fw-semibold text-yellow-2 fs-4">
-              Javascript
-            </li>
-            <span className="fs-4 text-yellow-2">|</span>
-            <li className="category-item fw-semibold text-yellow-2 fs-4">
-              Database
-            </li>
-            <span className="fs-4 text-yellow-2">|</span>
-            <li className="category-item fw-semibold text-yellow-2 fs-4">
-              Python
-            </li>
+            {["FrontEnd", "BackEnd", "Javascript", "Database", "Python"].map(
+              (cat, i, arr) => (
+                <React.Fragment key={cat}>
+                  <NavLink
+                    to={`category/${cat}`}
+                    className="category-item text-decoration-none fw-semibold text-yellow-2 fs-5"
+                  >
+                    {cat}
+                  </NavLink>
+                  {i !== arr.length - 1 && (
+                    <span className="fs-5 text-yellow-2">|</span>
+                  )}
+                </React.Fragment>
+              )
+            )}
           </ul>
           <CartWidget />
         </Container>

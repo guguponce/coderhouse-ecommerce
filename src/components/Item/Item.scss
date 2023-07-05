@@ -1,0 +1,41 @@
+@import "../../styles/Settings.scss";
+
+.itemCard {
+  padding: 0.5rem 0;
+  box-shadow: 2px 2px 5px 1px #ddd;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px 3px #ccc;
+  }
+}
+
+.addCart {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $green-4;
+  outline: 2px solid $green-2;
+  cursor: pointer;
+  @include flex(row, center, center);
+  svg {
+    margin-right: 2px;
+    width: 60%;
+    height: 60%;
+  }
+  h2 {
+    color: #fefefe;
+    display: none;
+  }
+  &:hover {
+    outline-width: 3px;
+    outline-offset: 1px;
+    svg {
+      display: none;
+    }
+    h2 {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../styles/Settings.scss";
+#whole-book {
+  margin: 0 auto;
+  width: 160px;
+  height: 200px;
+  display: flex;
+
+  #side {
+    background-color: #666;
+    border-radius: 6px 1px 1px 6px;
+    width: 10px;
+    height: 100%;
+  }
+  #front {
+    width: 240px;
+    border-radius: 1px 4px 4px 1px;
+    background-color: #444;
+    @include flex(row, center, center);
+
+    img {
+      width: 90%;
+      max-width: 130px;
+    }
+  }
+  &:hover {
+    transform: scale(1.01);
+  }
+}

@@ -1,0 +1,46 @@
+@import "../../styles/Settings.scss";
+
+.accordionContainer {
+  border-radius: 0.5rem;
+  background-color: #ceddcb;
+  .accordionTop {
+    width: 100%;
+    @include flex(row, space-between, center);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    .accordionTitle {
+      font-size: 1rem;
+      margin: 0;
+      margin-left: 1rem;
+    }
+
+    .accordionIcon {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+      margin: 0;
+    }
+
+    &:hover {
+      background-color: $bg-2;
+    }
+  }
+
+  .accordionBottom {
+    padding: 1rem;
+    display: none;
+    .accordionContent {
+      font-size: 1rem;
+      text-align: justify;
+      .detailsTitle {
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 0 0 5px 1px #aaa;
+    border-radius: 0.5rem;
+  }
+}
