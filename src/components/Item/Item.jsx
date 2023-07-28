@@ -23,7 +23,7 @@ export default function Item({ book }) {
         </Card.Text>
       </Card.Body>
       <Card.Footer
-        className="bg-transparent border-0 d-flex justify-content-between align-items-md-center mx-auto cardFooter"
+        className="bg-transparent border-0 d-flex align-items-md-center mx-auto cardFooter"
         style={{ width: "90%" }}
       >
         {stock > 0 ? (
