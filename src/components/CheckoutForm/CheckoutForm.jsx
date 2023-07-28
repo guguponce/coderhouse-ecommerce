@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { ShoppingCartContext } from "../../hooks/CartContext";
 import { FirestoreContext } from "../../firebase/Firestore";
+import { db } from "../../firebase/firebase";
+import { doc, increment, updateDoc } from "firebase/firestore";
 
 export default function CheckoutForm({ handleOrder }) {
   const [ordering, setOrdering] = useState(false);
@@ -99,11 +101,33 @@ export default function CheckoutForm({ handleOrder }) {
         date: new Date(),
         state: "ordered",
       };
-      const newOrderID = await addNewOrder(order);
-      handleOrder(order, newOrderID);
-      setTimeout(() => {
-        clearCart();
-      }, 2000);
+      addNewOrder(order)
+        .then((newOrderID) => {
+          handleOrder(order, newOrderID);
+        })
+        .then(() => {
+          order.order.forEach((item) => {
+            const itemRef = doc(db, "catalog", item.id);
+            updateDoc(itemRef, {
+              stock: increment(-item.quantity),
+            })
+              .then((res) => {
+                console.log("res", res);
+              })
+              .catch((error) => {
+                console.error("Error updating document: ", error);
+              });
+          });
+        })
+        .then(() => {
+          console.log("Order placed successfully");
+          setTimeout(() => {
+            clearCart();
+          }, 2000);
+        })
+        .catch((err) => {
+          throw new Error(err);
+        });
     }
   };
   return (

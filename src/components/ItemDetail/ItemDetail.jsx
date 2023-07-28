@@ -16,6 +16,7 @@ export default function ItemDetail({ item }) {
 
   return (
     <article className="singleBook" id="single-book">
+      stock: {item.data.stock}
       <h1 id="name-single-book">{item.data.name}</h1>
       <p id="authors-single-book">
         {item.data.authors.map((aut, i, arr) => (
@@ -53,7 +54,6 @@ export default function ItemDetail({ item }) {
           <span className="detailsTitle">Publish year:</span> {item.data.year}
         </p>
       </Accordion>
-
       <div id="price-counter-container">
         <div id="price-counter-box">
           <p id="price-single-book">${item.data.saleprice}</p>
