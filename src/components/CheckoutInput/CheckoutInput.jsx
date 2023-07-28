@@ -4,7 +4,6 @@ export default function CheckoutInput({
   name,
   type,
 }) {
-  console.log(inputData);
   return (
     <div className="inputColumnBox">
       <label htmlFor="name">

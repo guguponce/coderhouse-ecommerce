@@ -16,9 +16,9 @@ export default function ItemDetail({ item }) {
 
   return (
     <article className="singleBook" id="single-book">
-      <h1 id="name-single-book">{item.name}</h1>
+      <h1 id="name-single-book">{item.data.name}</h1>
       <p id="authors-single-book">
-        {item.authors.map((aut, i, arr) => (
+        {item.data.authors.map((aut, i, arr) => (
           <React.Fragment key={aut + i}>
             {aut}
             {!(i === arr.length - 1) && <span> - </span>}
@@ -27,36 +27,41 @@ export default function ItemDetail({ item }) {
       </p>
       <div id="img-description-box" className="">
         <div id="img-single-book">
-          <SingleBookCover imgURL={item.imageurl} bookTitle={item.name} />
+          <SingleBookCover
+            imgURL={item.data.imageurl}
+            bookTitle={item.data.name}
+          />
         </div>
         <p id="description-single-book">
-          {item.longDescription ? item.longDescription : item.shortDescription}
+          {item.data.longDescription
+            ? item.data.longDescription
+            : item.data.shortDescription}
         </p>
       </div>
       <Accordion title={"Details"} id={"details-accordion"}>
         <p className="accordionContent">
           <span className="detailsTitle">Categories:</span>
-          {item.categories.join(", ")}
+          {item.data.categories.join(", ")}
         </p>
         <p className="accordionContent">
-          <span className="detailsTitle">Pages:</span> {item.pages}
+          <span className="detailsTitle">Pages:</span> {item.data.pages}
         </p>{" "}
         <p className="accordionContent">
-          <span className="detailsTitle">ISBN:</span> {item.isbn}{" "}
+          <span className="detailsTitle">ISBN:</span> {item.data.isbn}{" "}
         </p>
         <p className="accordionContent">
-          <span className="detailsTitle">Publish year:</span> {item.year}
+          <span className="detailsTitle">Publish year:</span> {item.data.year}
         </p>
       </Accordion>
 
       <div id="price-counter-container">
         <div id="price-counter-box">
-          <p id="price-single-book">${item.saleprice}</p>
-          {item.stock ? (
+          <p id="price-single-book">${item.data.saleprice}</p>
+          {item.data.stock ? (
             <ItemCount
               id={"counter-single-book"}
               initialValue={1}
-              stock={item.stock}
+              stock={item.data.stock}
               handleAddToCart={handleAddToCart}
             />
           ) : (
@@ -80,7 +85,7 @@ export default function ItemDetail({ item }) {
             </Button>
             <p id="total-price">
               <span>Total price: </span> $
-              {(item.saleprice * itemQuantity).toFixed(2)}
+              {(item.data.saleprice * itemQuantity).toFixed(2)}
             </p>
           </div>
         )}

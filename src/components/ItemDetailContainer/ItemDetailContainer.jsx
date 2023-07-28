@@ -43,7 +43,7 @@ export default function ItemDetailContainer() {
           </p>
         </div>
       ) : (
-        <ItemDetail item={book.data} />
+        <ItemDetail item={book} />
       )}
     </main>
   );

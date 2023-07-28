@@ -3,13 +3,11 @@ import { ShoppingCartContext } from "../../hooks/CartContext";
 
 export default function Summary() {
   const { subtotalAmount, state } = useContext(ShoppingCartContext);
-  const currentOrder = [...state];
-  console.log(currentOrder);
   return (
     <aside id="summary-container">
       <h2 id="summary-title">Summary</h2>
       <div id="articles-box">
-        {currentOrder.map((product) => (
+        {state.map((product) => (
           <div className="product-summary" key={product.id}>
             <p>{product.quantity}x</p>
             <h4>{product.data.name}</h4>

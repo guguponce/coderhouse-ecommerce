@@ -129,7 +129,7 @@
   box-shadow: 0 0 5px $green-4;
   margin: 2rem auto;
 
-  padding: 0.5rem;
+  padding: 2rem 0.5rem;
   @include flex(column, flex-start, center);
 
   @media (min-width: 600px) {

@@ -36,7 +36,6 @@ export const getBooksByCategory = (category) => {
 
 export async function addNewOrder(order) {
   try {
-    console.log("order", order);
     const adding = await addDoc(collection(db, "orders"), order);
     return adding.id;
   } catch (e) {

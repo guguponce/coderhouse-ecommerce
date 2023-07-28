@@ -17,14 +17,11 @@ export default function ShoppingCart() {
       <h1>Shopping Cart</h1>
       <section id="cart-list">
         {state.length ? (
-          state.map((prod) => {
-            console.log(prod);
-            return (
-              <React.Fragment key={prod.id}>
-                <SingleCartItem product={prod} />
-              </React.Fragment>
-            );
-          })
+          state.map((prod) => (
+            <React.Fragment key={prod.id}>
+              <SingleCartItem product={prod} />
+            </React.Fragment>
+          ))
         ) : (
           <div id="no-items-box">
             <h3>Your shopping cart is empty</h3>
