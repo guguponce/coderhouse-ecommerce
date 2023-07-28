@@ -1,3 +1,34 @@
+@import "../../styles/Settings.scss";
+
 .loadingContainer {
-  margin-top: 3rem;
+  width: 100%;
+  position: absolute;
+  transform: translate(-50%, 0%);
+  top: 200px;
+  left: 50%;
+  @include flex(column, center, center);
+  & > video {
+    width: 50%;
+    aspect-ratio: 4 / 3;
+    outline: 3px solid $green-4;
+    outline-offset: 1rem;
+    border-radius: 0.5rem;
+  }
+  @media screen and (max-width: $tablet-width) {
+    & > video {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: $tablet-width) {
+    & > video {
+      width: 85%;
+    }
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    & > video {
+      width: calc(100% - 2rem);
+      border-radius: 0;
+    }
+  }
 }

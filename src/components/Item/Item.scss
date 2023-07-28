@@ -1,41 +1,65 @@
 @import "../../styles/Settings.scss";
 
 .itemCard {
+  width: 12rem;
   padding: 0.5rem 0;
   box-shadow: 2px 2px 5px 1px #ddd;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  .outStock {
+    text-align: center;
+  }
   &:hover {
     transform: scale(1.01);
     box-shadow: 2px 2px 5px 3px #ccc;
   }
+  @media (max-width: $mobile-width) {
+    width: 10.5rem;
+    .cardFooter {
+      width: 100%;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 0;
+      border: 1px solid red !important;
+    }
+    .outStock {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .addCart {
+  padding: 0;
+  border: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: $green-4;
   outline: 2px solid $green-2;
+  outline-offset: -1px;
   cursor: pointer;
-  @include flex(row, center, center);
+  display: grid;
+  place-items: center;
   svg {
     margin-right: 2px;
     width: 60%;
     height: 60%;
   }
-  h2 {
+  .addCartPlus {
     color: #fefefe;
     display: none;
   }
-  &:hover {
-    outline-width: 3px;
-    outline-offset: 1px;
-    svg {
-      display: none;
-    }
-    h2 {
-      display: block;
+  @media (hover: hover) {
+    &:hover {
+      outline-width: 3px;
+      outline-offset: 1px;
+      svg {
+        display: none;
+      }
+      h2 {
+        display: block;
+        height: 50%;
+      }
     }
   }
 }

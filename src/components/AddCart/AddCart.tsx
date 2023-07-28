@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShoppingCartContext } from "../../hooks/CartContext";
 
-export default function AddCart() {
+export default function AddCart({ book }) {
+  const { addToCart } = useContext(ShoppingCartContext);
   return (
-    <div className="addCart">
+    <button
+      className="addCart"
+      onClick={(e) => {
+        e.stopPropagation();
+        addToCart({ ...book, quantity: 1 });
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlSpace="preserve"
@@ -24,7 +32,7 @@ export default function AddCart() {
           />
         </g>
       </svg>
-      <h2>+</h2>
-    </div>
+      <h2 className="addCartPlus">+</h2>
+    </button>
   );
 }

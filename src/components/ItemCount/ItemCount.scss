@@ -9,7 +9,7 @@
     border-radius: 0.5rem;
     color: $green-3;
 
-    border: 2px solid $green-3;
+    outline: 2px solid $green-3;
     @include flex(row, center, center);
     .counterBtn,
     .counterNumber {

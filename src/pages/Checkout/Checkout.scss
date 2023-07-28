@@ -1,0 +1,269 @@
+@import "../../styles/Settings.scss";
+
+#checkout-main {
+  width: clamp(300px, 95%, 1000px);
+  background-color: hsl(37, 48%, 99%);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px #121212;
+  margin: calc(100px + 2rem) auto;
+  padding: 0.5rem;
+  @media (min-width: $mobile-width) {
+    padding: 2rem;
+    &.summaryIncluded {
+      display: grid;
+      grid-template-columns: 3fr 350px;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-family: InterBold, "Arial Bold", Impact, Haettenschweiler, sans-serif;
+    margin: 0;
+  }
+  #summary-container {
+    width: 100%;
+    border-radius: 0.25rem;
+    background-color: hsl(37, 48%, 94%);
+    padding: 1.5rem 1rem;
+
+    h2,
+    h3 {
+      font-family: InterBold, "Arial Narrow Bold", Impact, Haettenschweiler;
+      margin: 0;
+    }
+    h4 {
+      margin: 0;
+      font-family: InterSemibold, Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      @media (min-width: $laptop-width) {
+        font-size: 1.1rem;
+      }
+    }
+    #summary-title {
+      margin-bottom: 1.5rem;
+    }
+    .delivery-summary,
+    .product-summary {
+      display: grid;
+      grid-template-columns: 20px 1fr 60px;
+      gap: 1rem;
+      width: 100%;
+      margin-bottom: 0.25rem;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      background-color: hsl(37, 48%, 97%);
+      p:last-of-type {
+        text-align: right;
+      }
+      & > * {
+        margin: 0;
+      }
+    }
+    .delivery-summary {
+      @include flex(row, space-between, flex-start);
+    }
+    #total-summary {
+      @include flex(row, space-between, flex-start);
+      margin-top: 1rem;
+
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      background-color: hsl(37, 48%, 89%);
+    }
+  }
+
+  .inputColumnBox {
+    height: 100%;
+    @include flex(column, flex-start, flex-start);
+
+    & > span,
+    & > p {
+      display: block;
+      margin: 0.2rem 0 0;
+      color: rgb(70, 18, 18);
+    }
+  }
+  .doubleColumnBox {
+    @include flex(row, flex-start, flex-start);
+    gap: 2rem;
+    width: 100%;
+  }
+  form#order-form {
+    @include flex(column, flex-start, center);
+    #contact-box {
+      margin-bottom: 1rem;
+    }
+    #contact-box,
+    #address-box {
+      width: 100%;
+      label {
+        display: block;
+        color: #333;
+        margin-top: 1rem;
+      }
+
+      input {
+        all: unset;
+
+        border: 0;
+        border-bottom: 2px solid $green-4;
+        margin: 0;
+        padding: 0 0.5rem;
+        &:focus {
+          outline: 2px solid $green-4;
+          border-bottom: 0;
+          border-radius: 0.2rem;
+          margin-bottom: 2px;
+          color: $green-3;
+        }
+      }
+      input,
+      #deutschland {
+        font-family: InterSemibold, Arial, Helvetica, sans-serif;
+
+        font-size: 1.2rem;
+        background-color: transparent;
+        color: $green-4;
+      }
+
+      #deutschland {
+        margin: 0;
+        font-family: InterBold, Impact, Haettenschweiler, "Arial Narrow Bold";
+      }
+    }
+    #submit-btn {
+      font-family: InterBold, Impact, Haettenschweiler, "Arial Narrow Bold";
+      background-color: $green-1;
+      transition: all 200ms ease;
+
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline: 2px solid $green-4;
+      }
+      &:active {
+        outline: 2px solid $green-4;
+        outline-offset: 0;
+      }
+    }
+  }
+
+  #successful-section {
+    width: 100%;
+    @include flex(column, flex-start, center);
+
+    h1 {
+      font-family: InterBold, "Arial Bold", Impact, Haettenschweiler;
+      margin: 1rem 0 1.5rem;
+    }
+    span.bold {
+      //   color: $a-main-color;
+      font-family: InterSemibold, Arial, Helvetica, sans-serif;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    p {
+      font-size: 1.1rem;
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    #confirmation-text {
+      width: 80%;
+    }
+
+    #purchase-info {
+      margin: 3rem 0;
+      @include flex(column, flex-start, center);
+      gap: 1rem;
+      & > section > h3 {
+        font-family: InterSemibold, Arial, Helvetica, sans-serif;
+        margin: 0 0 0.5rem;
+        text-decoration: underline;
+      }
+      #successful-products {
+        min-height: 275px;
+        // width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: $green-2;
+        #ordered-products-container {
+          @include flex(row, center, flex-start);
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          #ordered-product {
+            width: fit-content;
+            background-color: $green-1;
+            @include flex(column, flex-start, center);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            * {
+              margin: 0;
+              text-align: center;
+            }
+            .cartItemImg {
+              width: 100px;
+              height: 125px;
+              object-fit: contain;
+            }
+            .cartItemName {
+              font-family: InterSemibold, Arial, Helvetica, sans-serif;
+            }
+            .cartItemPricesBox {
+              .cartItemPrice {
+                font-family: InterSemibold, Arial, Helvetica, sans-serif;
+              }
+            }
+          }
+        }
+      }
+    }
+    .socialLinks {
+      h3 {
+        font-family: InterSemibold, Arial, Helvetica, sans-serif;
+      }
+    }
+  }
+
+  @media (max-width: $laptop-width) {
+    label {
+      font-family: InterSemibold, Arial, Helvetica, sans-serif;
+    }
+    .doubleColumnBox {
+      flex-direction: column;
+      gap: 0rem;
+    }
+
+    #address-box {
+      margin-top: 2rem;
+      gap: 0;
+    }
+  }
+
+  @media (max-width: $tablet-width) {
+    grid-template-columns: repeat(1, 1fr) !important;
+    grid-template-rows: auto auto;
+    #order-form {
+      width: 100%;
+      margin-bottom: 2rem;
+      #contact-box,
+      #address-box {
+        width: 100%;
+        .inputColumnBox,
+        .doubleColumnBox {
+          width: fit-content;
+          min-width: 276.8px;
+          margin: 0 auto;
+        }
+      }
+      #submit-btn {
+        width: 100%;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

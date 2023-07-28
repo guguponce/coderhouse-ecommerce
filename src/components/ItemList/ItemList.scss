@@ -1,9 +1,13 @@
-#item-list {
+.booksCatalog {
+  @include flex(column, flex-start, center);
   width: 100%;
+  #item-list {
+    @include flex(row, center, flex-start);
 
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 }

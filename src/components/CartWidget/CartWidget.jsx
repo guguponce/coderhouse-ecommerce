@@ -1,7 +1,10 @@
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { ShoppingCartContext } from "../../hooks/CartContext";
+import { useContext } from "react";
 
 export default function CartWidget() {
+  const { state } = useContext(ShoppingCartContext);
   return (
     <Button as={Link} variant="link" to="/cart" id="shopping-cart">
       <svg
@@ -26,7 +29,7 @@ export default function CartWidget() {
         </g>
       </svg>
       <div id="cart-amount-container">
-        <span>1</span>
+        <span>{state.reduce((tot, num) => tot + num.quantity, 0)}</span>
       </div>
     </Button>
   );

@@ -1,14 +1,18 @@
 import SingleBookCover from "../SingleBookCover/SingleBookCover";
 import Accordion from "../Accordion/Accordion";
 import ItemCount from "../ItemCount/ItemCount";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { ShoppingCartContext } from "../../hooks/CartContext";
 
 export default function ItemDetail({ item }) {
   const [itemQuantity, setItemQuantity] = useState(0);
   const handleAddToCart = (quantity) => () => {
     setItemQuantity(quantity);
   };
+  const { addToCart } = useContext(ShoppingCartContext);
+  const navigate = useNavigate();
 
   return (
     <article className="singleBook" id="single-book">
@@ -61,10 +65,19 @@ export default function ItemDetail({ item }) {
         </div>
         {itemQuantity > 0 && (
           <div id="add-total-price-box">
-            <Link to="/cart" id="add-to-cart-btn" className="btn">
+            <Button
+              to="/cart"
+              id="add-to-cart-btn"
+              onClick={() => {
+                addToCart({ ...item, quantity: itemQuantity });
+                setTimeout(() => {
+                  navigate("/cart");
+                }, 500);
+              }}
+            >
               Add {itemQuantity} book{itemQuantity === 1 ? "" : "s"} to Shopping
               Cart
-            </Link>
+            </Button>
             <p id="total-price">
               <span>Total price: </span> $
               {(item.saleprice * itemQuantity).toFixed(2)}

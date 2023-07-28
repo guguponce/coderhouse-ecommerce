@@ -9,20 +9,26 @@ import { Route, Routes } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./pages/Cart/Cart";
+import Checkout from "./pages/Checkout/Checkout";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import CartProvider from "./hooks/CartContext";
+import FirestoreProvider from "./firebase/Firestore.jsx";
 
 function App() {
   return (
-    <>
-      <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/book/:id" element={<ItemDetailContainer />} />
-        <Route path="/category/:category" element={<ItemListContainer />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </>
+    <FirestoreProvider>
+      <CartProvider>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/book/:id" element={<ItemDetailContainer />} />
+          <Route path="/category/:category" element={<ItemListContainer />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </CartProvider>
+    </FirestoreProvider>
   );
 }
 

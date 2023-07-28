@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import { getBooks, getBooksByCategory } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import Loading from "../Loading/Loading";
 import { useParams } from "react-router-dom";
+import { FirestoreContext } from "../../firebase/Firestore";
 
 export default function ItemListContainer() {
   const [booksList, setBooksList] = useState([]);
   const { category } = useParams();
-
+  const { getCatalog } = useContext(FirestoreContext);
   useEffect(() => {
-    const getData = category ? getBooksByCategory : getBooks;
-    getData(category)
-      .then((books) => {
+    getCatalog().then((books) => {
+      if (category) {
+        setBooksList(
+          books.filter((book) => book.data.categories.includes(category))
+        );
+      } else {
         setBooksList(books);
-      })
-      .catch((error) => {
-        throw Error(error);
-      });
-  }, [category]);
+      }
+    });
+  }, [category, getCatalog]);
+
   return (
     <Container
       id="item-list-container"

@@ -1,3 +1,14 @@
+// max-width
+$my-laptop: 1536px;
+$tv-width: 1920px;
+
+$desktop-width: 1200px;
+$laptop-width: 1024px;
+$tablet-width: 768px;
+$mobile-width: 600px;
+$regmobile-width: 480px;
+$minmobile-width: 320px;
+
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
@@ -95,8 +106,10 @@ $bg-3: #e1eae0;
   -webkit-text-size-adjust: 100%;
 }
 body {
+  min-height: 100vh;
   background-color: $body-bg;
   box-sizing: border-box;
+  padding-bottom: 2rem;
 }
 
 .main {

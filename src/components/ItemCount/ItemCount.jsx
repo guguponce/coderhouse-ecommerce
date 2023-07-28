@@ -37,7 +37,7 @@ export default function ItemCount({
         variant="outline-success"
         className="addToCartBtn"
       >
-        {count > 0 ? "Add to Cart" : "Cancel"}
+        {count > 0 ? "Confirm amount" : "Cancel"}
       </Button>
     </div>
   );

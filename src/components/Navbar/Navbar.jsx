@@ -7,6 +7,7 @@ import React from "react";
 
 export default function NavbarComponent() {
   const navigate = useNavigate();
+
   return (
     <Container as="header" className="px-0 mw-100 container-fluid">
       <Navbar
@@ -38,7 +39,10 @@ export default function NavbarComponent() {
         >
           <CartWidget />
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            className="navToggler"
+          />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               {["FrontEnd", "BackEnd", "Javascript", "Database", "Python"].map(
@@ -48,6 +52,9 @@ export default function NavbarComponent() {
                       as={NavLink}
                       to={`category/${cat}`}
                       className="category-item text-decoration-none fw-semibold text-yellow-2 fs-5"
+                      style={({ isActive }) => ({
+                        color: isActive ? "#E1E1A3" : "#fefefe",
+                      })}
                     >
                       {cat}
                     </Nav.Link>{" "}
@@ -56,23 +63,6 @@ export default function NavbarComponent() {
               )}
             </Nav>
           </Navbar.Collapse>
-          {/* <ul className="list-group list-group-horizontal gap-3 mx-5  flex-wrap">
-            {["FrontEnd", "BackEnd", "Javascript", "Database", "Python"].map(
-              (cat, i, arr) => (
-                <React.Fragment key={cat}>
-                  <NavLink
-                    to={`category/${cat}`}
-                    className="category-item text-decoration-none fw-semibold text-yellow-2 fs-5"
-                  >
-                    {cat}
-                  </NavLink>
-                  {i !== arr.length - 1 && (
-                    <span className="fs-5 text-yellow-2">|</span>
-                  )}
-                </React.Fragment>
-              )
-            )}
-          </ul> */}
         </Container>
       </Navbar>
     </Container>
