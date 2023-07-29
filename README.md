@@ -1,6 +1,6 @@
 # DevBooks
 
-This is a basic ecommerce project used for the React course. The application allows you to view a list of books related to the world of programming and purchase them online. Products and purchase orders are stored in Firebase.
+This is a basic ecommerce project used for the React course. The application allows you to view a list of books related to the world of programming and purchase them online. The books and purchase orders are stored in Firebase.
 
 ## Applied Technologies
 
@@ -13,7 +13,8 @@ This is a basic ecommerce project used for the React course. The application all
 
 ## Features
 
-- View a list of available products
+- View a list of available books
+- View the books's details
 - Add products to shopping cart
 - View the shopping cart
 - Place a purchase order
