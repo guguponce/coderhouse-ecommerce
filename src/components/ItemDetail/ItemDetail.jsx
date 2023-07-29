@@ -16,7 +16,6 @@ export default function ItemDetail({ item }) {
 
   return (
     <article className="singleBook" id="single-book">
-      stock: {item.data.stock}
       <h1 id="name-single-book">{item.data.name}</h1>
       <p id="authors-single-book">
         {item.data.authors.map((aut, i, arr) => (

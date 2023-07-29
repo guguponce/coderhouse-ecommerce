@@ -19,23 +19,25 @@ export default function SingleCartItem({ product }) {
       </Link>
       <h4 className="cartItemName">{name}</h4>
       <div className="itemQuantityManger">
-        <div className="quantityBox">
-          <button
-            className="quantityButton decButton"
-            onClick={() =>
-              setItemQuantity((prev) => (prev > 1 ? prev - 1 : prev))
-            }
-          >
-            -
-          </button>
-          <div className="cartItemQuantity">{itemQuantity}</div>
-          <button
-            className="quantityButton incButton"
-            onClick={() => setItemQuantity((prev) => prev + 1)}
-          >
-            +
-          </button>
-        </div>
+        {
+          <div className="quantityBox">
+            <button
+              className="quantityButton decButton"
+              onClick={() =>
+                setItemQuantity((prev) => (prev > 1 ? prev - 1 : prev))
+              }
+            >
+              <span>-</span>
+            </button>
+            <div className="cartItemQuantity">{itemQuantity}</div>
+            <button
+              className="quantityButton incButton"
+              onClick={() => setItemQuantity((prev) => prev + 1)}
+            >
+              <span>+</span>
+            </button>
+          </div>
+        }
         <button
           className="removeButton"
           onClick={() => removeFromCart(product)}

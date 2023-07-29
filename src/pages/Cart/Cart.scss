@@ -5,6 +5,7 @@
   margin-bottom: 0.25rem;
   padding: 0.25rem 0;
   align-self: flex-end;
+  height: 24px;
   .quantityButton {
     width: 1.5rem;
     height: 1.5rem;
@@ -12,7 +13,17 @@
     border-radius: 5px;
     cursor: pointer;
     transition: all 100 ease-in;
-    background-color: hsl(30, 33%, 98%);
+    background-color: hsl(125, 15%, 53%);
+    color: #fefefe;
+    font-weight: 800;
+    position: relative;
+    height: 100%;
+    span {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     &.decButton {
       border-radius: 0.2rem 0 0 0.2rem;
     }
@@ -81,10 +92,11 @@
       padding: 0.1rem 0.2rem !important;
       background-color: transparent;
       border-radius: 0.25rem !important;
-      color: $green-3;
+      color: #571818;
+      border: 1px solid #571818;
       transition: all 0.1s ease !important;
       &:hover {
-        background-color: $green-3;
+        background-color: #571818;
         color: #fefefe;
         border-radius: 0.25rem !important;
       }
@@ -153,26 +165,42 @@
         font-family: InterSemibold, Arial, Helvetica, sans-serif;
       }
       #add-items-btn {
-        background-color: hsl(5, 28%, 46%);
-
+        background-color: $green-2;
+        border: 0;
         &:hover {
-          outline: 1px solid hsl(0, 54%, 48%);
+          outline: 1px solid $green-2;
           outline-offset: 2px;
         }
       }
     }
   }
   #clear-checkout-btns {
-    width: 80%;
+    width: clamp(300px, 95%, 800px);
+
+    padding: 0 2rem;
     @include flex(row, space-between, center);
-    #checkout-cart-btn {
+    #clearcart-btn {
       border: 0;
       margin-right: calc(5% / 2) !important;
-      background-color: $green-3;
+      background-color: #571818 !important;
       &:hover {
-        outline: 1px solid $green-3;
         outline-offset: 2px;
+        background-color: hsl(0, 54%, 40%) !important;
       }
+    }
+  }
+  .checkoutBtn {
+    border: 0;
+    margin-left: calc(5% / 2) !important;
+    background-color: $green-2 !important;
+    &:hover {
+      outline-offset: 2px;
+      background-color: $green-3 !important;
+    }
+    &:disabled {
+      background-color: hsl(0, 0%, 70%) !important;
+      color: hsl(0, 0%, 50%) !important;
+      cursor: not-allowed;
     }
   }
   #checkout-box {
@@ -218,11 +246,7 @@
     }
     #checkout-btn {
       align-self: flex-end;
-      min-width: 110px;
       margin: 1rem 0 0;
-      background-color: hsl(30, 89%, 84%);
-      font-family: InterBold, Impact, Haettenschweiler, "Arial Narrow Bold";
-      border: 2px solid $green-1;
     }
 
     @media (max-width: 600px) {

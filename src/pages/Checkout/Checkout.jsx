@@ -14,7 +14,12 @@ export default function Checkout() {
   };
 
   return (
-    <div id="checkout-main" className="summaryIncluded">
+    <div
+      id="checkout-main"
+      className={
+        orderID || !state.length ? "summaryExcluded" : "summaryIncluded"
+      }
+    >
       {orderID ? (
         <div id="successful-section">
           <h2>Congratulations, {order.buyer.name}!</h2>

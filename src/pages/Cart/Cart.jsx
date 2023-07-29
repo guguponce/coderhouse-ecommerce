@@ -8,7 +8,10 @@ export default function ShoppingCart() {
   const { state, clearCart } = useContext(ShoppingCartContext);
 
   const subtotal = useMemo(() => {
-    const subt = state.reduce((tot, p) => tot + p.saleprice * p.quantity, 0);
+    const subt = state.reduce(
+      (tot, p) => tot + p.data.saleprice * p.quantity,
+      0
+    );
     return subt;
   }, [state]);
 
@@ -33,10 +36,15 @@ export default function ShoppingCart() {
       </section>
       {!!state.length && (
         <div id="clear-checkout-btns">
-          <Button variant="danger" onClick={() => clearCart()}>
+          <Button id="clearcart-btn" onClick={() => clearCart()}>
             Clear Cart
           </Button>
-          <Button id="checkout-cart-btn" as={Link} to={"/checkout"}>
+          <Button
+            id="checkout-cart-btn"
+            className="checkoutBtn"
+            as={Link}
+            to={"/checkout"}
+          >
             Checkout
           </Button>
         </div>
@@ -72,7 +80,7 @@ export default function ShoppingCart() {
           <Button
             as={Link}
             to="/checkout"
-            className="button-plain"
+            className="button-plain checkoutBtn"
             id="checkout-btn"
           >
             Checkout

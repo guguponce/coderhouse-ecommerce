@@ -110,17 +110,12 @@ export default function CheckoutForm({ handleOrder }) {
             const itemRef = doc(db, "catalog", item.id);
             updateDoc(itemRef, {
               stock: increment(-item.quantity),
-            })
-              .then((res) => {
-                console.log("res", res);
-              })
-              .catch((error) => {
-                console.error("Error updating document: ", error);
-              });
+            }).catch((error) => {
+              console.error("Error updating document: ", error);
+            });
           });
         })
         .then(() => {
-          console.log("Order placed successfully");
           setTimeout(() => {
             clearCart();
           }, 2000);

@@ -24,17 +24,7 @@ export const getBooksByCategory = (category) => {
   );
 };
 
-// export async function addToCatalog(data) {
-//   try {
-//     const adding = await addDoc(collection(db, "catalog"), data);
-//     console.log("Document written with ID: ", adding.id);
-//     return adding.id;
-//   } catch (e) {
-//     console.error("Error adding document: ", e);
-//   }
-// }
-
-export async function addNewOrder(order) {
+async function addNewOrder(order) {
   try {
     const adding = await addDoc(collection(db, "orders"), order);
     return adding.id;

@@ -136,7 +136,7 @@
       font-family: InterBold, Impact, Haettenschweiler, "Arial Narrow Bold";
       background-color: $green-1;
       transition: all 200ms ease;
-
+      border: 0;
       outline: 2px solid transparent;
       outline-offset: 2px;
       &:hover,
@@ -160,7 +160,6 @@
       margin: 1rem 0 1.5rem;
     }
     span.bold {
-      //   color: $a-main-color;
       font-family: InterSemibold, Arial, Helvetica, sans-serif;
       &:hover {
         text-decoration: underline;
@@ -187,7 +186,6 @@
       }
       #successful-products {
         min-height: 275px;
-        // width: 100%;
         padding: 1rem;
         border-radius: 0.5rem;
         background-color: $green-2;
